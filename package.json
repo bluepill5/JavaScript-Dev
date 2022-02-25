@@ -1,0 +1,11 @@
+{
+  "name": "development",
+  "version": "1.0.0",
+  "description": "La idea del repositorio es practicar algunos conceptos de JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
