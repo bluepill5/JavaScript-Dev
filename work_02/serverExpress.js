@@ -44,7 +44,7 @@ const app = express();
 /* ------------------------------- End Points ------------------------------- */
 
 app.get('/', (req, res) => {
-    res.send(`🚀 Hola desde el servidor Express 🚀`);
+    res.send(`🚀🚀🚀 Hola desde el servidor Express 🚀🚀🚀`);
 });
 
 app.get('/productos_Objeto', (req, res) => {
@@ -68,6 +68,8 @@ app.get('/productoRandom', (req, res) => {
     // Mostramos un producto de forma aleatoria
     res.json(products[indexRand]);
 });
+
+/* ------------------------ Inicializamos el servidor ----------------------- */
 
 const PORT = 8083;
 const server = app.listen(PORT, () => {
