@@ -20,4 +20,7 @@ Antes de iniciar el servidor, colocar en el archivo 'productos.txt' tres product
     * **'/productos'**: Muestra los productos de un archivo.
     * **'/productoRandom'**: Muestra un producto de forma aleatoria de un archivo.
 
+## Alternativa
+
+[Proyecto en glitch](https://famous-stripe-sodium.glitch.me/)
 

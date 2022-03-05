@@ -71,7 +71,7 @@ app.get('/productoRandom', (req, res) => {
 
 /* ------------------------ Inicializamos el servidor ----------------------- */
 
-const PORT = 8083;
+const PORT = 8080;
 const server = app.listen(PORT, () => {
     console.log(`🔥 Servidor escuchando con Express en puerto http://localhost:${PORT}`);
 });
