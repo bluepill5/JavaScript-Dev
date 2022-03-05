@@ -2,10 +2,20 @@
   "name": "development",
   "version": "1.0.0",
   "description": "La idea del repositorio es practicar algunos conceptos de JavaScript.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --inspect ./scripts/serverHttp.js",
+    "start": "nodemon --inspect ./src/index.js",
+    "work_02": "nodemon --inspect ./work_02/serverExpress.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.10.0"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "moment": "^2.29.1"
+  }
 }
