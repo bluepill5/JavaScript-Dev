@@ -19,7 +19,7 @@
     - Las respuestas del servidor serán en formato JSON. La funcionalidad será probada a través de Postman y del formulario de ingreso.
 
 
-## Ejecución [serverExpress.js](https://github.com/bluepill5/JavaScript-Dev/blob/master/work_02/serverExpress.js)
+## Ejecución [serverExpress.js](https://github.com/bluepill5/JavaScript-Dev/blob/master/work_03/serverExpress.js)
 
 1) Para levantar el servidor: **npm run work_03** 
 2) Los distintos **end points**:
