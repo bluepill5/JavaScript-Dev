@@ -20,7 +20,6 @@ class Contenedor {
         // Guardamos el archivo
         try {
             await fs.promises.writeFile(this.path, JSON.stringify(products));
-            console.log(newProduct);
             return newProduct.id;
         } catch (error) {
             console.log(`Error al guardar el archivo: {error}`);
@@ -63,7 +62,6 @@ class Contenedor {
         try {
             let products = await fs.promises.readFile(this.path, 'utf-8')
                 .then(content => JSON.parse(content));
-            //const products = await this.getAll();
             let product = products.find(product => product.id == id);
             
             if (product) {

@@ -16,12 +16,17 @@ async function get_product(path_file, id) {
     return prod;
 }
 
+async function post_product(path_file, newProduct) {
+    const container = new Contenedor(path_file);
+    let new_prod_id = await container.save(newProduct);
+    return new_prod_id;
+}
+
 async function delete_product(path_file, id) {
     const container = new Contenedor(path_file);
     let prod = await container.deleteById(id);
     return prod;
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                              Servidor Express                              */
@@ -41,6 +46,7 @@ app.get('', (req, res) => {
     res.sendFile('index.html');
 });
 
+// Obtenemos todos los productos
 router_products.get('/', (req, res) => {
     let products = get_products(path_file);
     products.then((prods) => {
@@ -48,6 +54,7 @@ router_products.get('/', (req, res) => {
     });
 });
 
+// Obtenemos un producto por id
 router_products.get('/:id', (req, res) => {
     const { id } = req.params;
     let prod = get_product(path_file, id);
@@ -57,17 +64,26 @@ router_products.get('/:id', (req, res) => {
 });
 
 /* ---------------------------------- POST ---------------------------------- */
-router_products.post('', (req, res)  => {
-
+// Agregamos un producto nuevo
+router_products.post('/', (req, res)  => {
+    const { body } = req;
+    let new_prod_id = post_product(path_file, body);
+    new_prod_id.then((id) => {
+        res.status(200).json({
+            id
+        })
+    })
 });
 
 /* ----------------------------------- PUT ---------------------------------- */
+// Actualizamos un producto por su id
 router_products.put('', (req, res) => {
 
 });
 
 
 /* --------------------------------- DELETE --------------------------------- */
+// Eliminamos un producto por su id
 router_products.delete('/:id', (req, res) => {
     const { id } = req.params;
     let prod = delete_product(path_file, id);
