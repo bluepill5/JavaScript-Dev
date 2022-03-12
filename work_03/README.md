@@ -21,9 +21,23 @@
 
 ## Ejecución [serverExpress.js](https://github.com/bluepill5/JavaScript-Dev/blob/master/work_03/serverExpress.js)
 
-1) Para levantar el servidor: **npm run work_03** 
-2) Los distintos **end points**:
-    * **'/'**:
+    * Para levantar el servidor: **npm run work_03**
+
+### GET '/api/productos'
+
+
+### GET '/api/productos/:id'
+
+
+### POST '/api/productos'
+
+
+### PUT '/api/productos/:id'
+
+
+### DELETE '/api/productos/:id' 
+
+
 
 
 
