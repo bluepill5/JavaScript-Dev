@@ -36,7 +36,7 @@
 ![post_producto_after](/work_03/images/post_producto_after.png)
 
 ### PUT -> '/api/productos/:id':
-![put_productos_id](/work_03/images/put_producto_id.png)
+![put_productos_id](/work_03/images/put_productos_id.png)
 
 ### DELETE -> '/api/productos/:id': 
 ![delete_producto_id](/work_03/images/delete_producto_id.png)
