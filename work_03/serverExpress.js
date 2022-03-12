@@ -16,6 +16,11 @@ async function get_product(path_file, id) {
     return prod;
 }
 
+async function delete_product(path_file, id) {
+    const container = new Contenedor(path_file);
+    let prod = await container.deleteById(id);
+    return prod;
+}
 
 
 /* -------------------------------------------------------------------------- */
@@ -63,8 +68,12 @@ router_products.put('', (req, res) => {
 
 
 /* --------------------------------- DELETE --------------------------------- */
-router_products.delete('', (req, res) => {
-
+router_products.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    let prod = delete_product(path_file, id);
+    prod.then((prod) => {
+        res.status(200).json(prod);
+    });
 });
 
 
