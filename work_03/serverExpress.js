@@ -22,6 +22,12 @@ async function post_product(path_file, newProduct) {
     return new_prod_id;
 }
 
+async function update_product(path_file, id, prodUpdate) {
+    const container = new Contenedor(path_file);
+    let prod = await container.updateById(id, prodUpdate);
+    return prod;
+}
+
 async function delete_product(path_file, id) {
     const container = new Contenedor(path_file);
     let prod = await container.deleteById(id);
@@ -77,8 +83,13 @@ router_products.post('/', (req, res)  => {
 
 /* ----------------------------------- PUT ---------------------------------- */
 // Actualizamos un producto por su id
-router_products.put('', (req, res) => {
-
+router_products.put('/:id', (req, res) => {
+    const { id } = req.params;
+    const { body } = req;
+    let prod = update_product(path_file, id, body);
+    prod.then((prod) => {
+        res.status(200).json(prod);
+    });
 });
 
 

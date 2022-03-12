@@ -27,6 +27,30 @@ class Contenedor {
         }
     }
 
+    updateById = async (id, prodUpdate) => {
+        // Recibe un id y actualiza sus datos
+        try {
+            let products = await this.getAll();
+            const product = products.find(x => x.id == id) || 'Product not found.';
+            if (product == 'Product not found.') {
+                return product;
+            } else {
+                const properties = ['title', 'price', 'thumbnail'];
+                Object.entries(prodUpdate).map(item => {
+                    if(properties.includes(item[0])) {
+                        product[item[0]] = item[1];
+                    }
+                });
+                products = products.filter(product => product.id != id);
+                products.push(product);
+                fs.promises.writeFile(this.path, JSON.stringify(products));
+                return product;
+            }
+        } catch(error) {
+            console.log('Error');
+        }
+    }
+
     getById = async (id) => {
         // Recibe un id y devuelve el objeto con ese id,
         // o null si no está  
