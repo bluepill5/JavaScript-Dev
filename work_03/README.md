@@ -23,19 +23,19 @@
 
     * Para levantar el servidor: **npm run work_03**
 
-### GET '/api/productos'
+### GET: '/api/productos'
+![get_productos](/work_03/images/get_productos.png)
+
+### GET: '/api/productos/:id'
 
 
-### GET '/api/productos/:id'
+### POST: '/api/productos'
 
 
-### POST '/api/productos'
+### PUT: '/api/productos/:id'
 
 
-### PUT '/api/productos/:id'
-
-
-### DELETE '/api/productos/:id' 
+### DELETE: '/api/productos/:id' 
 
 
 
