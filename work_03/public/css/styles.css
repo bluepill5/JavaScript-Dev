@@ -1,0 +1,36 @@
+body {
+    font-family: system-ui;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    padding-inline-start: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 1rem;
+}
+
+.form-post {
+    border: 1px solid #26241f;
+    padding-inline: 1rem;
+    padding-block: .5rem;
+}
+
+.container-button {
+    border: 1px solid #26241f;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1rem;
+    padding-block: .5rem;
+}
+
+.container-button>form {
+    align-self: center;
+}
+

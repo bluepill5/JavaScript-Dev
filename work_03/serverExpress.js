@@ -41,6 +41,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./work_03/public'));
+app.use('/favicon.ico', express.static('./work_03/public/images/favicon.ico'));
 
 /* --------------------------------- Routers -------------------------------- */
 const router_products = express.Router();
@@ -53,7 +54,7 @@ app.get('', (req, res) => {
 });
 
 // Obtenemos todos los productos
-router_products.get('/', (req, res) => {
+router_products.get('', (req, res) => {
     let products = get_products(path_file);
     products.then((prods) => {
         res.status(200).json(prods);
@@ -64,6 +65,17 @@ router_products.get('/', (req, res) => {
 router_products.get('/:id', (req, res) => {
     const { id } = req.params;
     let prod = get_product(path_file, id);
+    console.log('param');
+    prod.then((prod) => {
+        res.status(200).json(prod);
+    });
+});
+
+// Obtenemos un producto por id
+router_products.get('/', (req, res) => {
+    const { id } = req.query;
+    let prod = get_product(path_file, id);
+    console.log('query');
     prod.then((prod) => {
         res.status(200).json(prod);
     });
@@ -86,6 +98,17 @@ router_products.post('/', (req, res)  => {
 router_products.put('/:id', (req, res) => {
     const { id } = req.params;
     const { body } = req;
+    let prod = update_product(path_file, id, body);
+    prod.then((prod) => {
+        res.status(200).json(prod);
+    });
+});
+
+// Actualizamos un producto por su id
+router_products.put('/', (req, res) => {
+    const { id } = req.query;
+    const { body } = req;
+    console.log(body);
     let prod = update_product(path_file, id, body);
     prod.then((prod) => {
         res.status(200).json(prod);
