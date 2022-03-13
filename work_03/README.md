@@ -24,6 +24,9 @@
     * Para levantar el servidor: **npm run work_03**
 
 ## Funcionalidades:
+### index.html:
+![API](https://user-images.githubusercontent.com/4382527/158040673-6a702be7-e15c-4ea1-8388-8f093aa28af0.gif)
+
 ### GET -> '/api/productos':
 ![get_productos](/work_03/images/get_productos.png)
 
