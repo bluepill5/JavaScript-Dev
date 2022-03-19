@@ -22,8 +22,9 @@
 - Utilizar iconfinder (https://www.iconfinder.com/free_icons) para obtener la url de las imágenes de los productos (click derecho sobre la imagen -> copiar dirección de la imagen).
 
 ## Ejecución:
-    - [Handlebars](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/hbs)
-    - [Pug](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/pug)
-    - [EJS](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/ejs)
+
+- [Handlebars](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/hbs)
+- [Pug](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/pug)
+- [EJS](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/ejs)
 
 
