@@ -13,9 +13,31 @@
     <%- include('../partials/nav') %>
     <header class="header">
         <h1>
-            Home
+            Productos
         </h1>
     </header>
+
+    <div class="container">
+        <form class="form-post" action="/productos" method="POST">
+            <label for="title">Título:</label>
+            <input type="text" name="title" id="" required>
+            
+            <label for="price">Precio:</label>
+            <input type="number" step='0.01' name="price" id="" required>
+
+            <label for="thumbnail">Thumbnail:</label>
+            <input type="text" name="thumbnail" id="">
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        <div class="container-button">
+            <form action="/productos/" method="GET">
+                <button type="submit" class="btn btn-primary">Ver Todos</button>
+            </form>
+        </div>
+
+    </div>
 
 </body>
 <script src="https://kit.fontawesome.com/328ed3a744.js" crossorigin="anonymous"></script>

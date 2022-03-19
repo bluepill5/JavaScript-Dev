@@ -65,7 +65,6 @@ router_products.get('', (req, res) => {
 router_products.get('/:id', (req, res) => {
     const { id } = req.params;
     let prod = get_product(path_file, id);
-    console.log('param');
     prod.then((prod) => {
         res.status(200).json(prod);
     });
@@ -75,7 +74,6 @@ router_products.get('/:id', (req, res) => {
 router_products.get('/', (req, res) => {
     const { id } = req.query;
     let prod = get_product(path_file, id);
-    console.log('query');
     prod.then((prod) => {
         res.status(200).json(prod);
     });
@@ -108,7 +106,6 @@ router_products.put('/:id', (req, res) => {
 router_products.put('/', (req, res) => {
     const { id } = req.query;
     const { body } = req;
-    console.log(body);
     let prod = update_product(path_file, id, body);
     prod.then((prod) => {
         res.status(200).json(prod);
