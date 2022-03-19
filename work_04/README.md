@@ -21,8 +21,9 @@
 ### Sugerencias:
 - Utilizar iconfinder (https://www.iconfinder.com/free_icons) para obtener la url de las imágenes de los productos (click derecho sobre la imagen -> copiar dirección de la imagen).
 
-## Ejecución [serverExpress.js](https://github.com/bluepill5/JavaScript-Dev/blob/master/work_03/serverExpress.js)
-
-    * Para levantar el servidor: **npm run ____**
+## Ejecución:
+    - [Handlebars](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/hbs)
+    - [Pug](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/pug)
+    - [EJS](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/ejs)
 
 
