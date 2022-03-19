@@ -3,7 +3,7 @@ const express = require('express');
 const Contenedor = require('../../Contenedor');
 
 /* -------------------------------- Productos ------------------------------- */
-let path_file = './work_03/productos.json';
+let path_file = './productos.json';
 async function get_products(path_file) {
     const container = new Contenedor(path_file);
     let prods = await container.getAll();
@@ -44,11 +44,37 @@ app.use(express.urlencoded({ extended: true }));
 app.set('views', './src/views');
 app.set('view engine', 'pug');
 
+/* --------------------------------- Routers -------------------------------- */
+const router_products = express.Router();
+
 /* -------------------------------- Endpoints ------------------------------- */
 // Home
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', {});
 });
+
+app.get('/formulario', (req, res) => {
+    res.render('form', {});
+});
+
+router_products.get('/', (req, res) => {
+    let products = get_products(path_file);
+    products.then((prods) => {
+        res.render('products', {prods});
+    });
+});
+
+router_products.post('/', (req, res) => {
+    const { body } = req;
+    let new_prod_id = post_product(path_file, body);
+    new_prod_id.then((id) => {
+        res.send('<script>alert("Información guardada");window.location.href="/formulario";</script>');
+    });    
+});
+
+/* -------------------------- Inicializar Servidor -------------------------- */
+// Routers
+app.use('/productos', router_products);
 
 const PORT = 8080;
 const server = app.listen(PORT, () => {

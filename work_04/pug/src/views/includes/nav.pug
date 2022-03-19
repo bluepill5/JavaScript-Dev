@@ -1,0 +1,26 @@
+nav.navbar.navbar-expand-md.bg-dark.navbar-dark.sticky
+  a.navbar-brand(href='/') E-products
+  button.navbar-toggler.navbar-toggler-right(type='button' name='button' data-toggler='collapse' data-target='#navb')
+    span.navbar-toggler-icon
+  #navb.navbar-collapse.collpase.hide
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='/formulario')
+          i.fa-solid.fa-file-lines
+          |                         REGISTRAR 
+          span.fas.fa-solid.fa-file-code
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='/productos')
+          i.fa-solid.fa-file-lines
+          |                         LISTADO 
+          span.fas.fa-solid.fa-file-code
+    ul.nav.navbar-nav.ml-auto
+      li.navbar-item
+        a.nav-link(href='')
+          span.fas.fa-user
+          |                             Login
+      li.navbar-item
+        a.nav-link(href='')
+          span.fas.fa-user-plus
+          |                             Registro

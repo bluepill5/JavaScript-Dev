@@ -11,7 +11,25 @@ head
 include includes/nav.pug
 header.header
   h1
-    | Home
+    | Productos
+.container
+  table.table
+    thead.thead-dark
+      tr
+        th(scope='col') Nombre
+        th(scope='col') Precio
+        th(scope='col') Imagen
+    tbody
+      each prod in prods
+        tr
+            td #{prod.title}
+            td #{prod.price}
+            td
+                img(src= prod.thumbnail alt='Producto' width='16')
+  .container-button
+    form(action='/formulario/' method='GET')
+      button.btn.btn-primary(type='submit') Registrar
+
 
 script(src='https://kit.fontawesome.com/328ed3a744.js' crossorigin='anonymous')
 script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
