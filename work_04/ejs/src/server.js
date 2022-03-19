@@ -47,7 +47,7 @@ app.set('view engine', 'ejs');
 /* -------------------------------- Endpoints ------------------------------- */
 // Home
 app.get('', (req, res) => {
-    res.sendFile('index.html');
+    res.render('pages/index', {});
 });
 
 const PORT = 8080;

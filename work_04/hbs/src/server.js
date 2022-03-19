@@ -1,5 +1,6 @@
 /* -------------------------------- Librerias ------------------------------- */
 const express = require('express');
+const { engine } = require('express-handlebars');
 const Contenedor = require('../../Contenedor');
 
 
@@ -45,10 +46,20 @@ app.use(express.urlencoded({ extended: true }));
 app.set('views', './src/views');
 app.set('view engine', 'hbs');
 
+app.engine(
+    "hbs",
+    engine({
+      extname: ".hbs",
+      defaultLayout: "index.hbs",
+      layoutsDir: __dirname + "/views/layouts",
+      partialsDir: __dirname + "/views/partials",
+    })
+  );
+
 /* -------------------------------- Endpoints ------------------------------- */
 // Home
 app.get('', (req, res) => {
-    res.sendFile('index.html');
+    res.render('main', {});
 });
 
 const PORT = 8080;
