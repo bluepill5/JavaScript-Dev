@@ -47,7 +47,7 @@ app.set('view engine', 'pug');
 /* -------------------------------- Endpoints ------------------------------- */
 // Home
 app.get('', (req, res) => {
-    res.sendFile('index.html');
+    res.render('index', {});
 });
 
 const PORT = 8080;
