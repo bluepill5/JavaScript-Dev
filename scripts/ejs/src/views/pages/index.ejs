@@ -9,6 +9,16 @@
     </header>
 
     <h1>Home</h1>
+    <h2>Macotas</h2>
+    <ul>
+        <% mascotas.forEach(function(mascota){ %>
+            <li>
+                Nombre: <%= mascota.nombre %>
+                Raza: <%= mascota.raza %>
+                Edad: <%= mascota.edad %>
+            </li>
+        <% }) %>
+    </ul>
 
     <footer>
         <%- include('../partials/footer') %>
