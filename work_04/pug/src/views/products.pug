@@ -12,23 +12,27 @@ include includes/nav.pug
 header.header
   h1
     | Productos
-.container
-  table.table
-    thead.thead-dark
-      tr
-        th(scope='col') Nombre
-        th(scope='col') Precio
-        th(scope='col') Imagen
-    tbody
-      each prod in prods
-        tr
-            td #{prod.title}
-            td #{prod.price}
-            td
-                img(src= prod.thumbnail alt='Producto' width='16')
-  .container-button
-    form(action='/formulario/' method='GET')
-      button.btn.btn-primary(type='submit') Registrar
+if exist_product
+    .container
+        table.table
+            thead.thead-dark
+            tr
+                th(scope='col') Nombre
+                th(scope='col') Precio
+                th(scope='col') Imagen
+            tbody
+            each prod in prods
+                tr
+                    td #{prod.title}
+                    td #{prod.price}
+                    td
+                        img(src= prod.thumbnail alt='Producto' width='16')
+        .container-button
+            form(action='/formulario/' method='GET')
+                button.btn.btn-primary(type='submit') Registrar
+else
+    .container
+        h2 No hay productos
 
 
 script(src='https://kit.fontawesome.com/328ed3a744.js' crossorigin='anonymous')

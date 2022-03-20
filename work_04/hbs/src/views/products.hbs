@@ -6,6 +6,7 @@
   </h1>
 </header>
 
+{{#if exist_product}}
 <div class="container">
         <table class="table">
             <thead class="thead-dark">
@@ -31,3 +32,9 @@
             </form>
         </div>
 </div>
+{{else}}
+<div class="container">
+    <h2>No hay productos</h2>
+</div>
+{{/if}}
+

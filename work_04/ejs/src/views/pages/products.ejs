@@ -17,31 +17,37 @@
         </h1>
     </header>
 
-    <div class="container">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Imagen</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% prods.forEach(function(product){ %>
-                <tr>
-                    <td><%= product.title%></td>
-                    <td><%= product.price %></td>
-                    <td><img src=<%= product.thumbnail %> alt="Producto" width="16"></td>
-                </tr>
-                <% }) %>
-            </tbody>
-        </table>
-        <div class="container-button">
-            <form action="/formulario/" method="GET">
-                <button type="submit" class="btn btn-primary">Registrar</button>
-            </form>
+    <% if(prods.length > 0){ %>
+        <div class="container">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% prods.forEach(function(product){ %>
+                    <tr>
+                        <td><%= product.title%></td>
+                        <td><%= product.price %></td>
+                        <td><img src=<%= product.thumbnail %> alt="Producto" width="16"></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div class="container-button">
+                <form action="/formulario/" method="GET">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
         </div>
-    </div>
+    <% } else { %>
+        <div class="container">
+            <h2>No hay productos</h2>
+        </div>
+    <% } %>
 
 </body>
 <script src="https://kit.fontawesome.com/328ed3a744.js" crossorigin="anonymous"></script>

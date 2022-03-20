@@ -60,7 +60,10 @@ app.get('/formulario', (req, res) => {
 router_products.get('/', (req, res) => {
     let products = get_products(path_file);
     products.then((prods) => {
-        res.render('products', {prods});
+        res.render('products', {
+            prods,
+            exist_product: prods.length > 0
+        });
     });
 });
 
