@@ -1,5 +1,6 @@
 /* -------------------------------- Librerias ------------------------------- */
 const express = require('express');
+const http = require('http');
 const { engine } = require('express-handlebars');
 const Contenedor = require('../Contenedor');
 
@@ -37,7 +38,7 @@ async function delete_product(path_file, id) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                              Servidor Express                              */
+/*                    Servidor Express & Websockets                           */
 /* -------------------------------------------------------------------------- */
 const app = express();
 app.use(express.json());
@@ -54,7 +55,14 @@ app.engine(
       layoutsDir: __dirname + "/views/layouts",
       partialsDir: __dirname + "/views/partials",
     })
-  );
+);
+
+/* ------------------------------- Websockets ------------------------------- */
+const server = http.createServer(app);
+const { Server } = require('socket.io');
+
+const io = new Server(server);
+
 
 /* --------------------------------- Routers -------------------------------- */
 const router_products = express.Router();
@@ -92,10 +100,6 @@ router_products.post('/', (req, res) => {
 app.use('/productos', router_products);
 
 const PORT = 8080;
-const server = app.listen(PORT, () => {
+server.listen(PORT, () => {
 console.log(`🔥 Servidor escuchando con Express en puerto http://localhost:8080`);
-});
-
-server.on('error', (err) => {
-console.log(err);
 });

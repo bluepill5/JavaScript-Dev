@@ -14,7 +14,7 @@
 
 ## Plantilla:
 
-- [Handlebars](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_04/hbs)
+- [Handlebars](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_05/src)
 
 
 
