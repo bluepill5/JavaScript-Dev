@@ -63,6 +63,31 @@ const { Server } = require('socket.io');
 
 const io = new Server(server);
 
+let today = new Date();
+let time = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear() + ' ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+const messages = [
+    {
+        email: "bluepill5",
+        datemessage: time,
+        text: "Hola!!! en que podemos ayudarte???",
+    },
+];
+
+io.on("connection", (socket) => {
+  //Enviamos todos los mensajes al nuevo cliente cuando se conecta
+  io.sockets.emit("messageBack", messages);
+  socket.on("disconnect", () => {
+    console.log("❌ Usuario desconectado");
+  });
+  //Recibimos los mensajes desde el frontend
+  socket.on("messageFront", (data) => {
+    messages.push(data);
+    // io.sockets.emit("message", data);
+    io.sockets.emit("messageBack", messages);
+  });
+});
+
 
 /* --------------------------------- Routers -------------------------------- */
 const router_products = express.Router();
@@ -93,6 +118,11 @@ router_products.post('/', (req, res) => {
     new_prod_id.then((id) => {
         res.send('<script>alert("Información guardada");window.location.href="/formulario";</script>');
     });    
+});
+
+/* ---------------------------------- Chat ---------------------------------- */
+app.get('/chat', (req, res) => {
+    res.render('chat', {});
 });
 
 /* -------------------------- Inicializar Servidor -------------------------- */
