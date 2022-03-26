@@ -99,7 +99,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/formulario', (req, res) => {
-    res.render('form', {});
+    let products = get_products(path_file);
+    products.then((prods) => {
+        res.render('form', {
+            prods,
+            exist_product: prods.length > 0
+        });
+    });
+    // res.render('form', {});
 });
 
 router_products.get('/', (req, res) => {
