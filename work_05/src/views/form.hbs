@@ -1,0 +1,29 @@
+{{>nav}}
+
+<header class="header">
+  <h1>
+    Registrar
+  </h1>
+</header>
+
+<div class="container">
+  <form class="form-post" action="/productos" method="POST">
+    <label for="title">Título:</label>
+    <input type="text" name="title" id="" />
+
+    <label for="price">Precio:</label>
+    <input type="number" step="0.01" name="price" id="" />
+
+    <label for="thumbnail">Thumbnail:</label>
+    <input type="text" name="thumbnail" id="" />
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+
+  <div class="container-button">
+    <form action="/api/productos/" method="GET">
+      <button type="submit" class="btn btn-primary">Ver Todos</button>
+    </form>
+  </div>
+
+</div>
