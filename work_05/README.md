@@ -16,5 +16,11 @@
 
 - [Handlebars](https://github.com/bluepill5/JavaScript-Dev/tree/master/work_05/src)
 
+## Ejecución:
+
+- *npm run wss*
+
+![Websockets](https://user-images.githubusercontent.com/4382527/160265975-e30bac83-6d1b-4b2b-b206-59dc9db1f560.gif)
+
 
 
