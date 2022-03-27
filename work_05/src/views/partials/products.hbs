@@ -1,33 +1,46 @@
-
-{{#if exist_product}}
 <div class="container">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Imagen</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each prods}}
-                <tr>
-                    <td>{{this.title}}</td>
-                    <td>{{this.price}}</td>
-                    <td><img src={{ this.thumbnail }} alt="Producto" width="16"></td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        <div class="container-button">
-            <form action="/formulario/" method="GET">
-                <button type="submit" class="btn btn-primary">Registrar</button>
-            </form>
-        </div>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Imagen</th>
+      </tr>
+    </thead>
+    <tbody id="tbl-prods">
+    </tbody>
+  </table>
 </div>
-{{else}}
-<div class="container">
-    <h2>No hay productos</h2>
-</div>
-{{/if}}
 
+<script>
+  const socket = io(); 
+  socket.on('messageBackProds', (data) => { 
+    let innerTextProd = ''; 
+    data.map((message) => { 
+      innerTextProd += ` 
+        <tr>
+          <td>${message.title}</td> 
+          <td>${message.price}</td>
+          <td><img src=${message.thumbnail} alt="Producto" width="16"></td> 
+        </tr> 
+      ` 
+    });
+    document.getElementById('tbl-prods').innerHTML = innerTextProd; 
+  });
+  
+  function addProduct() { 
+    const title = document.getElementById('title').value; 
+    const price = document.getElementById('price').value; 
+    const thumbnail = document.getElementById('thumbnail').value; 
+    console.log("Adding");
+    socket.emit('messageFrontProds', { 
+      title, 
+      price, 
+      thumbnail, 
+    });
+
+    document.getElementById('title').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('thumbnail').value = '';
+  }
+</script>

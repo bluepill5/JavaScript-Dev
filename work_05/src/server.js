@@ -1,4 +1,5 @@
 /* -------------------------------- Librerias ------------------------------- */
+const fs = require('fs');
 const express = require('express');
 const http = require('http');
 const { engine } = require('express-handlebars');
@@ -44,6 +45,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static('public'));
+
 app.set('views', './src/views');
 app.set('view engine', 'hbs');
 
@@ -74,17 +77,30 @@ const messages = [
     },
 ];
 
+const products_stream = JSON.parse(fs.readFileSync(path_file));;
+
 io.on("connection", (socket) => {
-  //Enviamos todos los mensajes al nuevo cliente cuando se conecta
+  // Enviamos todos los mensajes al cliente cuando se conecta
   io.sockets.emit("messageBack", messages);
-  socket.on("disconnect", () => {
-    console.log("❌ Usuario desconectado");
-  });
-  //Recibimos los mensajes desde el frontend
+  io.sockets.emit("messageBackProds", products_stream);
+
+  // Recibimos los mensajes desde el frontend
+  // Chat
   socket.on("messageFront", (data) => {
     messages.push(data);
     // io.sockets.emit("message", data);
     io.sockets.emit("messageBack", messages);
+  });
+
+  // Products
+  socket.on("messageFrontProds", (data) => {
+    post_product(path_file, data);
+    products_stream.push(data);
+    // let products = get_products(path_file);
+    // products.then((prods) => {
+    //     io.sockets.emit("messageBackProds", prods);
+    // });
+    io.sockets.emit("messageBackProds", products_stream);
   });
 });
 
@@ -106,7 +122,6 @@ app.get('/formulario', (req, res) => {
             exist_product: prods.length > 0
         });
     });
-    // res.render('form', {});
 });
 
 router_products.get('/', (req, res) => {
@@ -124,7 +139,7 @@ router_products.post('/', (req, res) => {
     let new_prod_id = post_product(path_file, body);
     new_prod_id.then((id) => {
         res.send('<script>alert("Información guardada");window.location.href="/formulario";</script>');
-    });    
+    });
 });
 
 /* ---------------------------------- Chat ---------------------------------- */

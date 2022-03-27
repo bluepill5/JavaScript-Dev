@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header-chat">
   <h2>
     Centro de Mensajes
   </h2>
@@ -22,7 +22,7 @@
 </fieldset>
 
 <script>
-  const socket = io();
+  //const socket = io();
 
   socket.on('messageBack', (data) => {
     let innerText = '';
@@ -51,8 +51,6 @@
 
     document.getElementById('message').value = '';
   }
-
-
 </script>
 
 </div>

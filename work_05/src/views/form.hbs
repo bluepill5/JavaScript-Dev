@@ -6,16 +6,16 @@
   </h1>
 </header>
 
-<div class="container">
-  <form class="form-post" action="/productos" method="POST">
+<div class="container style-form">
+  <form onSubmit="addProduct();return false" class="form-post">
     <label for="title">Título:</label>
-    <input type="text" name="title" id="" />
+    <input type="text" name="title" id="title" />
 
     <label for="price">Precio:</label>
-    <input type="number" step="0.01" name="price" id="" />
+    <input type="number" step="0.01" name="price" id="price" />
 
     <label for="thumbnail">Thumbnail:</label>
-    <input type="text" name="thumbnail" id="" />
+    <input type="text" name="thumbnail" id="thumbnail" />
 
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
@@ -31,3 +31,5 @@
   {{>chat}}
 
 </div>
+
+
