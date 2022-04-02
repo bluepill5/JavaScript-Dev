@@ -1,4 +1,4 @@
-# JavaScript Practice
+# eCommerce Backend
 
 ## Descripción:
 
@@ -8,6 +8,7 @@ La idea del repositorio es practicar algunos conceptos de JavaScript.
 
   - JavaScript
   - Node
+  - Express
 
 ## Temas
 
