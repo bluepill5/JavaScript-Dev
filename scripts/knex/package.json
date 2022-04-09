@@ -1,0 +1,20 @@
+{
+  "name": "knex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ej5": "nodemon --inspect ./ej5/db.js",
+    "ej6": "nodemon --inspect ./ej6/db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "knex": "^1.0.5",
+    "mysql2": "^2.3.3",
+    "sqlite3": "^5.0.2"
+  }
+}
