@@ -23,7 +23,7 @@ const Schema = new mongoose.Schema({
         required: true,
     },
     nota: {
-        type: Number,
+        type: Number,   
         index: true,
         required: true,
     },
