@@ -1,4 +1,4 @@
-const { normalize, schema } = require('normalizr');
+const { normalize, schema, denormalize } = require('normalizr');
 
 let blogposts = {
   id: 10,
@@ -31,6 +31,7 @@ const postSchema = new schema.Entity('post', {
 });
 
 const dataNormalized = normalize(blogposts, postSchema);
+const dataDenormalized = denormalize(dataNormalized.result, blogposts, dataNormalized.entities);
 
 // console.log(dataNormalized);
 
@@ -44,4 +45,6 @@ print(dataNormalized);
 
 console.log(JSON.stringify(blogposts).length, JSON.stringify(dataNormalized).length);
 
+console.log('**********************************************');
+console.log(dataDenormalized);
 
